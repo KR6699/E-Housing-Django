@@ -1,0 +1,57 @@
+{% extends "default/index.html" %} {% block content %}
+<div style="background: #34568B;height :500px;overflow:hidden;overflow-y:scroll;">
+    <div class="row justify-content-md-center" style="background-color: Tomato">
+        <label for="" class="mt-2"><h3>My House Details</h3></label>
+    </div>
+    <div class="row justify-content-md-center mt-4">
+        <div class="col col-md-3 mt-4">
+            <img src="{{home.image.url}}" height="200" width="200" alt="" />
+        </div>
+        <div class="col col-md-6 ml-5">
+            <table class="table table-bordered mt-4">
+                <thead class="thead" style="background: orange;">
+                    <tr align="center">
+                        <th scope="col">Attribute</th>
+                        <th scope="col">Value</th>
+                    </tr>
+                </thead>
+                <tbody align="center" style="background: #000000FF; color:#FFFFFF">
+                    <tr class="myhome">
+                        <td>Society</td>
+                        <td>{{home.sname}}</td>
+                    </tr>
+                    <tr class="myhome">
+                        <td>Block No</td>
+                        <td>{{home.blockno}}</td>
+                    </tr>
+                    <tr class="myhome">
+                        <td>Block Type</td>
+                        <td>{{home.type}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row justify-content-md-center mt-4">
+        <div class="col col-lg-3">
+            <form action="rent" method="POST">
+                {% csrf_token %}
+                <input type="text" class="form-control" id="" placeholder="Rent Price" name="rent_price" required />
+                <button type="submit" class="btn btn-warning  mt-2">
+            &emsp;&emsp;&emsp;&emsp13;Rent&emsp;&emsp;&emsp;&emsp;
+        </button>
+            </form>
+        </div>
+        <div class="col col-lg-3">
+            <form action="sell" method="POST">
+                {% csrf_token %}
+                <input type="text" style="word-wrap: hard;" class="form-control" id="" placeholder="Sell Price" name="sell_price" required />
+                <button type="submit" class="btn btn-warning  mt-2">
+            &emsp;&emsp;&emsp;&emsp;Sell&emsp;&emsp;&emsp;&emsp;
+        </button>
+        </div>
+        </form>
+    </div>
+</div>
+</div>
+{% endblock content %}

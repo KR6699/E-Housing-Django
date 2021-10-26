@@ -1,0 +1,69 @@
+{% extends "admin/master.html" %} {% block content %}
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+  <div class="form-group mt-5">
+    <label for="sname">Society Name</label>
+    <input
+      type="text"
+      class="form-control"
+      id="sname"
+      placeholder="Enter Society name (Must be Unique)"
+      name="sname" required
+    />
+  </div>
+  <div class="form-group">
+    <label for="inputAddress">Address</label>
+    <input
+      type="text"
+      class="form-control"
+      id="inputAddress"
+      placeholder="Enter Address of The Society"
+      name="address" required
+    />
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputCity">City</label>
+      <input
+        type="text"
+        class="form-control"
+        id="inputCity"
+        name="city"
+        placeholder="Enter City" required
+      />
+    </div>
+    <div class="form-group col-md-6">
+      <label for="no_house">No.of House</label>
+      <input
+        type="text"
+        class="form-control"
+        id="no_house"
+        placeholder="Enter How many House"
+        name="nohouse" required
+      />
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputpincode">Pincode</label>
+      <input
+        type="text"
+        class="form-control"
+        id="inputpincode"
+        name="pincode"
+        placeholder="Pincode" required
+      />
+    </div>
+    <div class="form-group col-md-6">
+        <div class="form-group">
+            <label for="exampleFormControlFile1">Image</label>
+            <input type="file" class="form-control-file" id="exampleFormControlFile1" name="image" required>
+          </div>
+    </div>
+  </div>
+  <div class="row justify-content-md-center mt-3">
+    <button type="submit" class="btn btn-primary btn-lg">Add Society</button>
+  </div>
+</form>
+
+{% endblock content %}

@@ -1,0 +1,48 @@
+{% extends "default/index.html" %} {% block content %}
+<div style="background: #34568B;height :500px;overflow:hidden;overflow-y:scroll;">
+    <!-- <table class="table table-bordered mt-4">
+        <thead class="thead" style="background: orange;">
+            <tr align="center">
+                <th scope="col">Sender</th>
+                <th scope="col">Subject</th>
+                <th scope="col">Message</th>
+                <th scope="col" colspan="2">Action</th>
+            </tr>
+        </thead>
+        <tbody style="background: #000000FF;color:#FFFFFF">
+            {% for a in data %} {% if a.receiver_name == us %}
+            <tr align="center" class="mymsg">
+                <td>{{a.sender_name}}</td>
+                <td>{{a.subject}}</td>
+                <td>{{a.message}}</td>
+                <td><a href="{% url 'message' a.sender_name %}"><button type="button" class="btn btn-success btn-sm">Reply</button>
+        </a></td>
+                <td><a href="{% url 'delete_msg' a.id %}"><button type="button" class="btn btn-danger btn-sm">Delete</button></a></td>
+            </tr>
+            {% endif %} {% endfor %}
+        </tbody>
+    </table> -->
+    <div id="accordion " class="">
+        {% for a in data %} {% if a.receiver_name == us %}
+        <div class="card " style="border:1px solid orange">
+            <div class="card-header mymsgs" style="background-color:#FCF6F5FF" id="{{a.id}}">
+                <h5 class="mb-0">
+                    <span class="badge badge-secondary">{{a.sender_name}}</span>
+                    <button class="btn btn-link collapsed sub" data-toggle="collapse" data-target="#collapse{{a.id}}" aria-expanded="true" aria-controls="collapseOne">
+                        {{a.subject}}
+                        <a href="{% url 'delete_msg' a.id %}"><button type="button" class="btn btn-danger btn-sm float-right mr-3">Delete</button></a>
+                    <a href="{% url 'message' a.sender_name %}"><button type="button" class="btn btn-success btn-sm float-right mr-3">Reply</button></a>
+                    </button>
+                </h5>
+            </div>
+
+            <div id="collapse{{a.id}}" class="collapse" aria-labelledby="{{a.id}}" data-parent="#accordion">
+                <div class="card-body">
+                    {{a.message}}
+                </div>
+            </div>
+        </div>
+        {% endif %} {% endfor %}
+    </div>
+</div>
+{% endblock content %}

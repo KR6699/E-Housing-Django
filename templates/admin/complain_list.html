@@ -1,0 +1,28 @@
+{% extends "admin/master.html" %} {% block content %}
+<div style="overflow:hidden;overflow-y:scroll;height: 520px;">
+    <table class="table table-bordered mt-4">
+        <thead class="thead" style="background: orange;">
+            <tr align="center">
+                <!-- <th scope="col">#</th> -->
+                <th scope="col">Username</th>
+                <th scope="col">Mobile</th>
+                <th scope="col">Subject</th>
+                <th scope="col">Content</th>
+                <th scope="col">Solve</th>
+            </tr>
+        </thead>
+        <tbody style="background: #000000FF; color:#FFFFFF">
+            {% for a in obj %}
+            <tr align="center" class="complainlist">
+                <!-- <th scope="row">{{forloop.counter}}</th> -->
+                <td>{{a.username}}</td>
+                <td>{{a.mobile}}</td>
+                <td>{{a.subject}}</td>
+                <td>{{a.content}}</td>
+                <td><a href="{% url 'solve' a.id %}"><button type="button" class="btn btn-primary btn-sm">Solve</button></a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock content %}

@@ -1,0 +1,28 @@
+{% extends "default/index.html" %} {% block content %}
+<div style="background: #34568B;height :500px;overflow:hidden;overflow-y:scroll;">
+    <div class="row justify-content-md-center mt-4">
+        <div class="col col-lg-8">
+            <form action="" method="POST">
+                {% csrf_token %}
+                <div class="row justify-content-md-center mt-5">
+                    <label for="inputmobile" style="color:chartreuse"><h3>Subject : &emsp;</h3></label>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="subject" placeholder="" required />
+                    </div>
+                </div>
+
+                <div class="row row justify-content-md-center mt-3">
+                    <div class="form-group">
+                        <textarea name="message" id="" cols="60" rows="5" placeholder="Write your message  here..." required></textarea>
+                    </div>
+                </div>
+                <div class="row justify-content-md-center mt-4">
+                    <button type="submit" class="btn btn-warning btn btn-success mt-2">
+          &emsp;Send Message&emsp;
+        </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}

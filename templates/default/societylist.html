@@ -1,0 +1,30 @@
+{% extends "default/index.html" %} {% block content %} {% for i in sname %} {% if i.id == id %}
+
+<div class="row justify-content-md-center" style="background-color:Tomato;">
+    <label for="" class="mt-2"><h3>House List of {{i.sname}}</h3></label>
+</div>
+<div style="background: #34568B;height :500px;overflow:hidden;overflow-y:scroll;">
+    <table class="table table-bordered mt-4">
+        <thead class="thead" style="background: orange;">
+            <tr align="center"><b>
+                <th scope="col">BN NO.</th>
+                <th scope="col">Image</th>
+                <th scope="col">Type</th>
+                <th scope="col">Society Name</th>
+                <th scope="col">Detail</th></b>
+            </tr>
+        </thead>
+        <tbody style="background: #000000FF;color:#FFFFFF">
+            {% for a in data %} {% if a.sname == i.sname %}
+            <tr align="center" class="society">
+                <td>{{a.blockno}}</td>
+                <td><img src="{{a.image.url}}" width="50" height="30" alt=""></td>
+                <td>{{a.type}}</td>
+                <td>{{a.sname}}</td>
+                <td>{{a.detail}}</td>
+            </tr>
+            {% endif %} {% endfor %} {% endif %} {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock content %}

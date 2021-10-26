@@ -1,0 +1,50 @@
+{% extends "default/index.html" %} {% block content %}
+<div style="background: #34568B;height :500px;overflow:hidden;overflow-y:scroll;">
+    <div class="row justify-content-md-center mt-4">
+        <div class="col col-md-3 mt-4">
+            <img src="{{house.image.url}}" height="200" width="200" alt="" />
+            <div class="row justify-content-md-center mt-5">
+                <a class="nav-link" href="{% url 'message' obj.username %}"><button type="button" class="btn btn-warning btn-lg">&emsp;Message&emsp;</button>
+        </a
+      >
+    </div>
+  </div>
+  <div class="col col-md-6 ml-5">
+    <table class="table table-bordered mt-4">
+      <thead class="thead" style="background: orange;">
+        <tr align="center">
+          <th scope="col">Attribute</th>
+          <th scope="col">Value</th>
+        </tr>
+      </thead>
+      <tbody align="center" style="background: #000000FF;color:#FFFFFF">
+        <tr class="rhview">
+          <td>Owner Name</td>
+          <td>{{obj.username}}</td>
+        </tr>
+        <tr class="rhview">
+          <td>Contact</td>
+          <td>{{obj.mobile_no}}</td>
+        </tr>
+        <tr class="rhview">
+          <td>Society</td>
+          <td>{{house.sname}}</td>
+        </tr>
+        <tr class="rhview">
+          <td>Block No</td>
+          <td>{{house.blockno}}</td>
+        </tr>
+        <tr class="rhview">
+          <td>Block Type</td>
+          <td>{{house.type}}</td>
+        </tr>
+        <tr class="rhview">
+          <td>Price</td>
+          <td>{{data.rent_price}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</div>
+{% endblock content %}

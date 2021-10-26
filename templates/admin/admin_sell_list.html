@@ -1,0 +1,32 @@
+{% extends "admin/master.html" %} {% block content %}
+<div style="overflow:hidden;overflow-y:scroll;height: 520px;">
+    <table class="table table-bordered mt-4">
+        <thead class="thead" style="background:orange;">
+            <tr align="center">
+                <!-- <th scope="col">#</th> -->
+                <th scope="col">Block</th>
+                <th scope="col">Society</th>
+                <th scope="col">Address</th>
+                <th scope="col">Type</th>
+                <th scope="col">Price</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody style="background: #000000FF; color:#FFFFFF">
+            {% for a in obj %}
+            <tr align="center" class="slist">
+                <!-- <th scope="row">{{forloop.counter}}</th> -->
+                <td>{{a.house_no}}</td>
+                <td>{{a.sname}}</td>
+                {% for b in sname %} {% if b.sname == a.sname %}
+                <td>{{b.address}}</td>
+                {% endif %} {% endfor %}
+                <td>{{a.type}}</td>
+                <td>{{a.sell_price}}</td>
+                <td><a href="{% url 'delete_sh' a.id %}"><button type="button" class="btn btn-danger btn-sm">Delete</button></a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock content %}

@@ -1,0 +1,79 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>{{title}}</title>
+</head>
+
+<body>
+    <div class="container mt-2">
+        <div class="row justify-content-md-center bg-primary">
+            <h1>E - Housing Helping Society</h1>
+        </div>
+        <div class="row">
+            <div class="col-3 bg-dark" align='center' style="overflow:hidden;overflow-y:scroll;height: 520px;">
+                <div class="row justify-content-md-center mt-2 ml-1 mr-1 button" style="background-color: #e3f2fd;">
+                    <a class="nav-link" href="{% url 'add_society' %}">
+                        <h4> Add Society</h4> <span class="sr-only">(current)</span></a>
+                </div>
+                <div class="row justify-content-md-center mt-1 ml-1 mr-1 button" style="background-color: #e3f2fd;">
+                    <a class="nav-link" href="{% url 'add_house' %}">
+                        <h4> Add House</h4> <span class="sr-only">(current)</span></a>
+                </div>
+                <div class="row justify-content-md-center mt-1 ml-1 mr-1 button" style="background-color: #e3f2fd;">
+                    <a class="nav-link" href="{% url 'house_report' %}">
+                        <h4> House Report</h4> <span class="sr-only">(current)</span></a>
+                </div>
+                <div class="row justify-content-md-center mt-1 ml-1 mr-1 button" style="background-color: #e3f2fd;">
+                    <a class="nav-link" href="{% url 'house_allocate' %}">
+                        <h4> Allocate House</h4> <span class="sr-only">(current)</span></a>
+                </div>
+                <div class="row justify-content-md-center mt-1 ml-1 mr-1 button" style="background-color: #e3f2fd;">
+                    <a class="nav-link" href="{% url 'member_report' %}">
+                        <h4>Member Report</h4> <span class="sr-only">(current)</span></a>
+                </div>
+                <div class="row justify-content-md-center mt-1 ml-1 mr-1 button" style="background-color: #e3f2fd;">
+                    <a class="nav-link" href="{% url 'admin_complain' %}">
+                        <h4>Complain</h4> <span class="sr-only">(current)</span></a>
+                </div>
+                <div class="row justify-content-md-center mt-1 ml-1 mr-1 button" style="background-color: #e3f2fd;">
+                    <a class="nav-link" href="{% url 'sell_h_report' %}">
+                        <h4>Sell House Report</h4> <span class="sr-only">(current)</span></a>
+                </div>
+                <div class="row justify-content-md-center mt-1 ml-1 mr-1 button" style="background-color: #e3f2fd;">
+                    <a class="nav-link" href="{% url 'rent_h_report' %}">
+                        <h4> Rent House report</h4> <span class="sr-only">(current)</span></a>
+                </div>
+                <div class="row justify-content-md-center mt-1 ml-1 mr-1 button" style="background-color: #e3f2fd;">
+                    <a class="nav-link" href="{% url 'society_report' %}">
+                        <h4> Society List</h4> <span class="sr-only">(current)</span></a>
+                </div>
+                <div class="row justify-content-md-center mt-1 ml-1 mr-1 mb-2 button" style="background-color: #e3f2fd;">
+                    <a class="nav-link" href="{% url 'logout' %}">
+                        <h4>Logout</h4> <span class="sr-only">(current)</span></a>
+                </div>
+            </div>
+            <div class="col-9" style="background-color: #e3f2fd;">
+                {% block content %} {% endblock content %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+<script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+<script src="{% static 'js/master.js' %}"></script>
+
+</html>

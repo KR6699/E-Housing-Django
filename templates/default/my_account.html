@@ -1,0 +1,46 @@
+{% extends "default/index.html" %} {% block content %}
+<div style="background: #34568B;height :500px;overflow:hidden;overflow-y:scroll;">
+    <div class="row justify-content-md-center" style="background-color: Tomato">
+        <label for="" class="mt-2"><h3>My Account</h3></label>
+    </div>
+    <div class="row justify-content-md-center">
+        <div class="col col-md-6">
+            <table class="table table-bordered mt-4">
+
+                <thead class="thead" style="background: orange;">
+                    <tr align="center">
+                        <th scope="col">Attribute</th>
+                        <th scope="col">Value</th>
+                    </tr>
+                </thead>
+                <tbody align="center" style="background: #000000FF; color:#FFFFFF">
+                    <tr class="myaccount">
+                        <td>First Name</td>
+                        <td>{{user.fname}}</td>
+                    </tr>
+                    <tr class="myaccount">
+                        <td>Last Name</td>
+                        <td>{{user.lname}}</td>
+                    </tr>
+                    <tr class="myaccount">
+                        <td>Mobile </td>
+                        <td>{{user.mobile_no}}</td>
+                    </tr>
+                    <tr class="myaccount">
+                        <td>Date of Birth </td>
+                        <td>{{user.dob}}</td>
+                    </tr>
+                    <tr class="myaccount">
+                        <td>Total Members </td>
+                        <td>{{user.members}}</td>
+                    </tr>
+                    <tr class="myaccount">
+                        <td>Society</td>
+                        <td>{{user.sname}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock content %}

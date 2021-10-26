@@ -1,0 +1,51 @@
+{% extends "admin/master.html" %} {% block content %}
+<form action="" method="POST">
+    {% csrf_token %}
+    <div class="form-group mt-3">
+        <div class="row justify-content-md-center">
+            <div class="col col-md-3 mt-2">
+                <label for="inputSociety"><h3>Select Society </h3></label>
+            </div>
+            <div class="col col-md-6 mt-2">
+                <select id="inputSociety" class="form-control" name="sname" required>
+          <option selected>Choose...</option>
+          {% for x in obj %}
+          <option value="{{x.sname}}">{{x.sname}}</option>
+          {% endfor %}
+        </select>
+            </div>
+            <div class="col col-md-2 mt-2">
+                <button type="submit" class="btn btn-primary">View</button>
+            </div>
+        </div>
+    </div>
+</form>
+<div style="overflow:hidden;overflow-y:scroll;height: 400px;">
+    <table class="table table-bordered">
+        <thead class="thead" style="background: orange;">
+            <tr align="center">
+                <!-- <th scope="col">#</th> -->
+                <th scope="col">BN NO.</th>
+                <th scope="col">Image</th>
+                <th scope="col">Type</th>
+                <th scope="col">Society Name</th>
+                <th scope="col">Detail</th>
+                <th scope="col">Delete</th>
+            </tr>
+        </thead>
+        <tbody style="background: #000000FF; color:#FFFFFF">
+            {% for a in data %} {% if a.sname == sname %}
+            <tr align="center" class="hreport">
+                <!-- <th scope="row">{{forloop.counter}}</th> -->
+                <td>{{a.blockno}}</td>
+                <td><img src="{{a.image.url}}" height="30" width="50" alt=""></td>
+                <td>{{a.type}}</td>
+                <td>{{a.sname}}</td>
+                <td>{{a.detail}}</td>
+                <td><a href="{% url 'delete' a.id %}"><button type="button" class="btn btn-danger btn-sm">Delete</button></a></td>
+            </tr>
+            {% endif %} {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock content %}

@@ -1,0 +1,66 @@
+{% extends "admin/master.html" %}
+{% block content %}
+<form method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
+  <div class="form-group mt-5">
+    <label for="inputSociety">Select Society</label>
+      <select id="inputSociety" class="form-control" name="sname" required>
+        <option selected disabled>Choose...</option>
+        {% for x in obj %}
+          <option value="{{ x.sname }}">{{x.sname}}</option>
+        {% endfor %}
+
+      </select>
+  </div>
+  <div class="form-group">
+    <label for="inputdetail">Detail</label>
+    <input
+      type="text"
+      class="form-control"
+      id="inputdetail"
+      placeholder="Enter Detail of The House"
+      name="detail"
+      required
+    />
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputbn">Block No.</label>
+      <input
+        type="text"
+        class="form-control"
+        id="inputbn"
+        name="blockno"
+        placeholder="Enter Block Number"
+        required
+      />
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputState">House Type</label>
+      <select id="inputState" class="form-control" name="type" required>
+        <option selected disabled>Choose...</option>
+        <option>1 BHK</option>
+        <option>2 BHK</option>
+        <option>3 BHK</option>
+        <option>4 BHK</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="form-group">
+      <label for="exampleFormControlFile1">Image</label>
+      <input
+        type="file"
+        class="form-control-file"
+        id="exampleFormControlFile1"
+        name="image" required
+      />
+    </div>
+  </div>
+  <div class="row justify-content-md-center mt-5">
+    <button type="submit" class="btn btn-primary btn-lg">Add House</button>
+  </div>
+</form>
+
+{% endblock content %}

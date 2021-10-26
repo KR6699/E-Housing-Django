@@ -1,0 +1,111 @@
+{% extends "admin/master.html" %} {% block content %}
+<form method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
+  <div class="form-row mt-3">
+    <div class="form-group col-md-6">
+      <label for="fname">First Name</label>
+      <input
+        type="text"
+        class="form-control"
+        name="fname"
+        placeholder="Enter Fname"
+        required
+      />
+    </div>
+    <div class="form-group col-md-5">
+      <label for="lname">Last Name</label>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Enter Lname"
+        name="lname"
+        required
+      />
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="birthday">Date of Birth</label><br />
+      <input type="date" name="dob" />
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputmobile">House No</label>
+      <input
+        type="text"
+        class="form-control"
+        name="blockno"
+        placeholder="House No"
+        required
+      />
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputsociety">Society Name</label>
+      <select id="inputSociety" class="form-control" name="sname" required>
+        <option selected>Choose...</option>
+        {% for x in sname %}
+        <option value="{{x.sname}}">{{x.sname}}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="form-group col-md-6">
+      <label>Members</label>
+      <input
+        type="text"
+        class="form-control"
+        name="members"
+        placeholder="Total members"
+        required
+      />
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputsociety">Username</label>
+      <input
+        type="text"
+        class="form-control"
+        name="username"
+        placeholder="Username (Must be Unique)"
+        required
+      />
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputmobile">Password</label>
+      <input
+        type="password"
+        class="form-control"
+        name="password"
+        placeholder="password"
+        required
+      />
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputmobile">Mobile No.</label>
+      <input
+        type="text"
+        class="form-control"
+        name="mobile_no"
+        placeholder="Mobile Number"
+        required
+      />
+    </div>
+    <div class="form-group col-md-6">
+      <label for="exampleFormControlFile1">Image</label>
+      <input
+        type="file"
+        class="form-control-file"
+        name="image"
+        required
+      />
+    </div>
+  </div>
+  <div class="row justify-content-md-center mt-3">
+    <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+  </div>
+</form>
+
+{% endblock content %}

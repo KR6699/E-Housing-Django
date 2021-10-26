@@ -1,0 +1,33 @@
+{% extends "default/index.html" %} {% block content %}
+
+<div style="background: #34568B;height :500px;overflow:hidden;overflow-y:scroll;">
+    <table class="table table-bordered mt-4">
+        <thead class="thead" style="background: orange;">
+            <tr align="center">
+                <!-- <th scope="col">#</th> -->
+                <th scope="col">Block</th>
+                <th scope="col">Society</th>
+                <th scope="col">Address</th>
+                <th scope="col">Type</th>
+                <th scope="col">Price</th>
+                <th scope="col">View</th>
+            </tr>
+        </thead>
+        <tbody style="background: #000000FF;color:#FFFFFF">
+            {% for a in data %}
+            <tr align="center" class="rentlist">
+                <!-- <th scope="row">{{forloop.counter}}</th> -->
+                <td>{{a.house_no}}</td>
+                <td>{{a.sname}}</td>
+                {% for b in sname %} {% if b.sname == a.sname %}
+                <td>{{b.address}}</td>
+                {% endif %} {% endfor %}
+                <td>{{a.type}}</td>
+                <td>{{a.rent_price}}</td>
+                <td><a href="{% url 'rent_house_view' a.id %}"><button type="button" class="btn btn-primary btn-sm">View</button></a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock content %}
